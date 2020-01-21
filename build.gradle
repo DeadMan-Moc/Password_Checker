@@ -1,8 +1,9 @@
+/*
 plugins {
     id 'java'
 }
 
-group 'org.password_checker'
+group 'org.example'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -13,4 +14,27 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+*/
+
+
+plugins {
+    id 'java'
+    id 'idea'   // optional, for IntelliJ IDEA project
+}
+
+group 'org.Allie'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.12.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
+}
+test {
+    useJUnitPlatform()
 }
