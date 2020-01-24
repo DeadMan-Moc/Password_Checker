@@ -8,14 +8,14 @@ public class PasswordChecker {
         static Pattern spec = Pattern.compile("[!@#$%^&()_~.?/,*;+=-]");
         static Pattern low = Pattern.compile(".*[a-z].*");
 
-        public static boolean passwordIsValid(String pass)  {
+        public static boolean passwordIsValid(String pass) throws Exception {
 
             Matcher mac = pt.matcher(pass);
             Matcher letters = let.matcher(pass);
             Matcher lowc = low.matcher(pass);
             Matcher special = spec.matcher(pass);
 
-            try {
+//            try {
                 for (int i = 0; i < pass.length(); i += 1) {
 
                     if (pass.length() >= 8) {
@@ -23,36 +23,36 @@ public class PasswordChecker {
                             System.out.println("It has numbers");
                         }
                         else {
-                            throw new Error("It doesn't have Digits");
+                            throw new digitException("It doesn't have Digits");
                         }
                         if (letters.find()){
                             System.out.println("It has Uppercases");
                         }
                         else {
-                            throw new Error("Does not Uppercases");
+                            throw new upperCaseException("Does not Uppercases");
                         }
                         if (lowc.find()){
                             System.out.println("It has lowercases");
                         }
                         else {
-                            throw new Error("It does not have lowercases");
+                            throw new lowerCase("It does not have lowercases");
                         }
                         if (special.find()){
                             System.out.println("It has special characters");
                         }
                         else{
-                            throw new Error("It does not have special characters");
+                            throw new SpecialException("It does not have special characters");
                         }
                     }
                     else {
-                        throw new Error("Should have 8 or more characters");
+                        throw new lengthException("Should have 8 or more characters");
                     }
                     break;
                 }
-            }
-            catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
+//            }
+//            catch (Exception e) {
+//                System.out.println(e.getMessage());
+//            }
 
             return false;
         }
