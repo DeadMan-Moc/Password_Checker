@@ -49,6 +49,10 @@ class PasswordCheckerTest {
 
     @Test
     void passwordIsOk() {
+        boolean X = password.passwordIsOk("dkdkdldPP8987");
+        assertTrue(X);
 
+        boolean z = password.passwordIsOk("ssasa");
+        assertFalse(z);
     }
 }
